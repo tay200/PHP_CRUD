@@ -41,7 +41,7 @@
           <?php } ?>
        </table>
        <div id="write_btn">
-         <a href="/page/board/write.php"><button>글쓰기</button></a>
+         <a href="write.php"><button>글쓰기</button></a>
        </div>
 </body>
 </html>
