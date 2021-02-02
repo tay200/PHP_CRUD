@@ -21,6 +21,7 @@
         </thead>
         <?php
           $sql = mq("select * from board order by idx desc limit 0,5");
+          //보냈던 쿼리결과를 배열로 행이 끝날때 까지 자동으로 반복을 실행
             while($board = $sql->fetch_array())
             {
               $title=$board["title"];
@@ -31,11 +32,11 @@
           ?>
           <tbody>
             <tr>
-              <th width="70"><?php echo $board['idx']; ?></td>
-              <th width="500"><a href=""><?php echo $title; ?></td>
-              <th width="120"><?php echo $board['name']; ?></td>
-              <th width="100"><?php echo $board['date']; ?></td>
-              <th width="100"><?php echo $board['hit']; ?></td>
+              <td width="70"><?php echo $board['idx']; ?></td>
+              <td width="500"><a href=""><?php echo $title; ?></td>
+              <td width="120"><?php echo $board['name']; ?></td>
+              <td width="100"><?php echo $board['date']; ?></td>
+              <td width="100"><?php echo $board['hit']; ?></td>
           </tbody>
           <?php } ?>
        </table>
