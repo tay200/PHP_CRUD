@@ -35,15 +35,13 @@
       <tbody>
         <tr>
           <td width="70"><?php echo $board['idx']; ?></td>
-          <td width="500"><?php $lockimg = "<img src='/img/lock.png' alt='lock' with='20' height='20' />";
+          <td width="500"><?php $lockimg = "<img src='img/lock.png' alt='lock' with='20' height='20' />";
           if($board['lock_post'] == "1")
           {
             ?><a href='ck_read.php?idx=<?php echo $board["idx"];?>'><?php echo $title, $lockimg;
-          }else{
-            ?>
-            <td width="500"><a href="read.php?idx=<?php echo $board['idx'];?>"><?php echo $title; }?></a></td>
+          }else{ ?>
+            <a href="read.php?idx=<?php echo $board['idx'];?>"><?php echo $title; }?></a></td>
           }
-
           <td width="120"><?php echo $board['name']?></td>
           <td width="100"><?php echo $board['date']?></td>
           <td width="100"><?php echo $board['hit']; ?></td>
@@ -52,7 +50,7 @@
       <?php } ?>
     </table>
     <div id="write_btn">
-      <a href="/page/board/write.php"><button>글쓰기</button></a>
+      <a href="/board/write.php"><button>글쓰기</button></a>
     </div>
   </div>
 </body>
