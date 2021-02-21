@@ -33,7 +33,7 @@
 	<!-- 목록, 수정, 삭제 -->
 	<div id="bo_ser">
 		<ul>
-			<li><a href="/">[목록으로]</a></li>
+			<li><a href="/board">[목록으로]</a></li>
 			<li><a href="modify.php?idx=<?php echo $board['idx']; ?>">[수정]</a></li>
 			<li><a href="delete.php?idx=<?php echo $board['idx']; ?>">[삭제]</a></li>
 		</ul>
