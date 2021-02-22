@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
-<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 </head>
@@ -39,6 +39,9 @@
 		</ul>
 	</div>
 </div>
+<div id="board_read">
+	파일 : <a href="/upload/<?php echo $board['file'];?>" download><?php echo $board['file']; ?></a>
+</div>
 <!--- 댓글 불러오기 -->
 <div class="reply_view">
 	<h3>댓글목록</h3>
@@ -55,14 +58,15 @@
 				<a class="dat_delete_bt" href="#">삭제</a>
 			</div>
 			<!-- 댓글 수정 폼 dialog -->
-			<div class="dat_edit">
-				<form method="post" action="reply_modify_ok.php">
-					<input type="hidden" name="rno" value="<?php echo $reply['idx']; ?>" /><input type="hidden" name="b_no" value="<?php echo $bno; ?>">
-					<input type="password" name="pw" class="dap_sm" placeholder="비밀번호" />
-					<textarea name="content" class="dap_edit_t"><?php echo $reply['content']; ?></textarea>
-					<input type="submit" value="수정하기" class="re_mo_bt">
-				</form>
-			</div>
+			<script type="text/javascript">
+				$(function(){
+					$(".dat_edit").dialog({
+					 	modal:true,
+					 	title:'수정하기.',
+					 	width:400,
+				 	});
+				});
+			</script>
 			<!-- 댓글 삭제 비밀번호 확인 -->
 			<div class='dat_delete'>
 				<form action="reply_delete.php" method="post">
