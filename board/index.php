@@ -30,9 +30,9 @@
               $list = 5; //한 페이지에 보여줄 개수
               $block_ct = 5; //블록당 보여줄 페이지 개수
 
-              $block_num = ceil($page/$block_ct); // 현재 페이지 블록 구하기
-              $block_start = (($block_num - 1) * $block_ct) + 1; // 블록의 시작번호
-              $block_end = $block_start + $block_ct - 1; //블록 마지막 번호
+              $block_num = ceil($page/$block_ct); // 현재 페이지 블록 구하기 ceil : 올림   / 처음 0
+              $block_start = (($block_num - 1) * $block_ct) + 1; // 블록의 시작번호  / 처음 1
+              $block_end = $block_start + $block_ct - 1; //블록 마지막 번호 / 처음 5
 
               $total_page = ceil($row_num / $list); // 페이징한 페이지 수 구하기
               if($block_end > $total_page) $block_end = $total_page; //만약 블록의 마지박 번호가 페이지수보다 많다면 마지박번호는 페이지 수
@@ -58,11 +58,19 @@
             if($board['lock_post']=="1")
             { ?>
               <a href='/board/ck_read.php?idx=<?php echo $board["idx"];?>'><?php echo $title, $lockimg;
-            }else{  ?>
-        <a href='/board/read.php?idx=<?php echo $board["idx"]; ?>'><?php echo $title; }?><span class="re_ct">[<?php echo $rep_count; ?>]</span></a></td>
+            }else{
+              $boardtime = $board['date'];
+              $timenow = date("Y-m-d");
+
+              if($boardtime==$timenow){
+                $img = "<img src='img/new.png' alt='new' title='new' />";
+              }else{
+                $img ="";
+              }?>
+        <a href='/board/read.php?idx=<?php echo $board["idx"]; ?>'><?php echo $title;}?><span class="re_ct">[<?php echo $rep_count; ?>]<?php echo $img; echo $boardtime;echo'<br>';echo $timenow;?></span></a></td>
           <td width="120"><?php echo $board['name']?></td>
           <td width="100"><?php echo $board['date']?></td>
-          <td width="100"><?php echo $board['hit']; ?></td>
+          <td width="100"><?php echo $board['hit']?></td>
         </tr>
       </tbody>
       <?php } ?>
@@ -73,10 +81,11 @@
         <?php
           if($page <= 1)
           { //만약 page가 1보다 크거나 같다면
-            echo "<li class='fo_re'>처음</li>"; //처음이라는 글자에 빨간색 표시
+            echo "<li class='fo_re'><<</li>"; //처음이라는 글자에 빨간색 표시
           }else{
-            echo "<li><a href='?page=1'>처음</a></li>"; //알니라면 처음글자에 1번페이지로 갈 수있게 링크
+            echo "<li><a href='?page=1'>처음</a></li>"; //아니라면 처음글자에 1번페이지로 갈 수있게 링크
           }
+
           if($page <= 1)
           { //만약 page가 1보다 크거나 같다면 빈값
 
