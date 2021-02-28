@@ -30,6 +30,9 @@
 			<div id="bo_content">
 				<?php echo nl2br("$board[content]"); ?>
 			</div>
+			<div>
+				파일 : <a href="/upload/<?php echo $board['file'];?>" download><?php echo $board['file']; ?></a>
+			</div>
 	<!-- 목록, 수정, 삭제 -->
 	<div id="bo_ser">
 		<ul>
@@ -39,9 +42,7 @@
 		</ul>
 	</div>
 </div>
-<div id="board_read">
-	파일 : <a href="/upload/<?php echo $board['file'];?>" download><?php echo $board['file']; ?></a>
-</div>
+
 <!--- 댓글 불러오기 -->
 <div class="reply_view">
 	<h3>댓글목록</h3>

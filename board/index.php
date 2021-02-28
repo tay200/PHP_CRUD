@@ -67,7 +67,7 @@
               }else{
                 $img ="";
               }?>
-        <a href='/board/read.php?idx=<?php echo $board["idx"]; ?>'><?php echo $title;}?><span class="re_ct">[<?php echo $rep_count; ?>]<?php echo $img; echo $boardtime;echo'<br>';echo $timenow;?></span></a></td>
+        <a href='/board/read.php?idx=<?php echo $board["idx"]; ?>'><?php echo $title;}?><span class="re_ct">[<?php echo $rep_count; ?>]<?php echo $img;?></span></a></td>
           <td width="120"><?php echo $board['name']?></td>
           <td width="100"><?php echo $board['date']?></td>
           <td width="100"><?php echo $board['hit']?></td>
@@ -114,9 +114,21 @@
         ?>
       </ul>
     </div>
+
     <div id="write_btn">
       <a href="/board/write.php"><button>글쓰기</button></a>
     </div>
+    <div id="search_box">
+      <form action="/board/search_result.php" method="get">
+        <select name="catgo">
+          <option value="title">제목</option>
+          <option value="name">글쓴이</option>
+          <option value="content">내용</option>
+        </select>
+        <input type="text" name="search" size="40" required="required"/><button>검색</button>
+      </form>
+    </div>
   </div>
+
 </body>
 </html>

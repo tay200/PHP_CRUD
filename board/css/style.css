@@ -48,6 +48,8 @@ ul li {
   right: 0;
 }
 
+
+
 /* 게시판 글쓰기 */
 #board_write {
 	width:900px;
@@ -213,4 +215,7 @@ ul li {
 .fo_re {
 	font-weight: bold;
 	color:red;
+}
+#search_box {
+  position: absolute;
 }
